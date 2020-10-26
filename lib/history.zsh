@@ -37,3 +37,7 @@ setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_verify            # show command with history expansion to user before running it
 setopt share_history          # share command history data
+setopt hist_ignore_all_dups     # Remember only one unique copy of the command.
+
+zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
+
